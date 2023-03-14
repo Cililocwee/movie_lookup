@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import ListStyleToggle from "./ListStyleToggle";
 import MovieCard from "./MovieCard";
 const api_key = import.meta.env.VITE_API_KEY;
 const movie_id = "550"; // The movie ID for "Fight Club"
@@ -7,6 +8,7 @@ const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}`;
 export default function MovieFinder() {
   const [movie, setMovie] = useState("");
   const [movieDisplay, setMovieDisplay] = useState([]);
+  const [listStyle, setListStyle] = useState(true);
 
   async function example(target) {
     await fetch(
@@ -23,6 +25,10 @@ export default function MovieFinder() {
   function handleChange(e) {
     setMovie(e.target.value);
   }
+
+  function toggleStyle() {
+    setListStyle(!listStyle);
+  }
   return (
     <div className="movie-wrapper">
       <div className="query-container">
@@ -34,17 +40,19 @@ export default function MovieFinder() {
           onChange={handleChange}
         />
         <button onClick={() => example(movie)}>Find my movie!</button>
+        <ListStyleToggle listStyle={toggleStyle} />
       </div>
       <div className="card-container">
-        {movieDisplay.map((movie, k) => (
-          <MovieCard
-            key={k}
-            title={movie.title}
-            image_url={movie.poster_path}
-            description={movie.overview}
-            year={movie.release_date.split("-")[0]}
-          />
-        ))}
+        {listStyle &&
+          movieDisplay.map((movie, k) => (
+            <MovieCard
+              key={k}
+              title={movie.title}
+              image_url={movie.poster_path}
+              description={movie.overview}
+              year={movie.release_date.split("-")[0]}
+            />
+          ))}
       </div>
     </div>
   );
