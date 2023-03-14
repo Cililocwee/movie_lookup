@@ -1,0 +1,21 @@
+.movie-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+
+  .query-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: fit-content;
+    overflow: auto;
+  }
+}

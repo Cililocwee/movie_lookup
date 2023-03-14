@@ -15,9 +15,8 @@ export default function MovieFinder() {
       .then((response) => response.json())
       .then((data) => {
         setMovieDisplay(data.results);
-        console.log(data);
+        console.log(data.results);
       })
-      .then(() => console.log(movieDisplay))
       .catch((error) => console.error(error));
   }
 
@@ -26,21 +25,27 @@ export default function MovieFinder() {
   }
   return (
     <div className="movie-wrapper">
-      <input
-        type="text"
-        name="movie"
-        id="movie"
-        value={movie}
-        onChange={handleChange}
-      />
-      <button onClick={() => example(movie)}>Click</button>
-      {movieDisplay.map((movie) => (
-        <MovieCard
-          title={movie.title}
-          image_url={movie.poster_path}
-          description={movie.overview}
+      <div className="query-container">
+        <input
+          type="text"
+          name="movie"
+          id="movie"
+          value={movie}
+          onChange={handleChange}
         />
-      ))}
+        <button onClick={() => example(movie)}>Find my movie!</button>
+      </div>
+      <div className="card-container">
+        {movieDisplay.map((movie, k) => (
+          <MovieCard
+            key={k}
+            title={movie.title}
+            image_url={movie.poster_path}
+            description={movie.overview}
+            year={movie.release_date.split("-")[0]}
+          />
+        ))}
+      </div>
     </div>
   );
 }
