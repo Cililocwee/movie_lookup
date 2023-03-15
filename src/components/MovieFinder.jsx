@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
+import ListView from "./ListView";
 import MovieCard from "./MovieCard";
 const api_key = import.meta.env.VITE_API_KEY;
 const movie_id = "550"; // The movie ID for "Fight Club"
@@ -43,7 +44,7 @@ export default function MovieFinder() {
         <ListStyleToggle listStyle={toggleStyle} />
       </div>
       <div className="card-container">
-        {listStyle &&
+        {listStyle ? (
           movieDisplay.map((movie, k) => (
             <MovieCard
               key={k}
@@ -52,7 +53,10 @@ export default function MovieFinder() {
               description={movie.overview}
               year={movie.release_date.split("-")[0]}
             />
-          ))}
+          ))
+        ) : (
+          <ListView items={movieDisplay} />
+        )}
       </div>
     </div>
   );
