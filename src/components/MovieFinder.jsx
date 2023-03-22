@@ -11,14 +11,15 @@ export default function MovieFinder() {
   const [movieDisplay, setMovieDisplay] = useState([]);
   const [listStyle, setListStyle] = useState(true);
 
-  async function example(target) {
+  async function queryMovie(target) {
     await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${target}`
     )
       .then((response) => response.json())
       .then((data) => {
         setMovieDisplay(data.results);
-        console.log(data.results);
+        setListStyle(true);
+        document.getElementById("status").checked = false;
       })
       .catch((error) => console.error(error));
   }
@@ -39,8 +40,14 @@ export default function MovieFinder() {
           id="movie"
           value={movie}
           onChange={handleChange}
+          onKeyDown={(e) => {
+            console.log(e.key);
+            if (e.key === "Enter") {
+              queryMovie(movie);
+            }
+          }}
         />
-        <button onClick={() => example(movie)}>Find my movie!</button>
+        <button onClick={() => queryMovie(movie)}>Find my movie!</button>
         <ListStyleToggle listStyle={toggleStyle} />
       </div>
       <div className="card-container">
