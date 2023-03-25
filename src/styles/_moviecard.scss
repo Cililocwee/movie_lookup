@@ -4,10 +4,10 @@
   aspect-ratio: 2/3;
   margin: 1em;
   box-sizing: border-box;
-  //   border: 1px solid black;
   position: relative;
   overflow: hidden;
   z-index: 10;
+  background: white;
 
   .card-img-top {
     max-width: 100%;
@@ -18,7 +18,6 @@
 
   &:hover {
     .card-img-top {
-      // transform: translateY(-100%);
       opacity: 0;
       transition: opacity 0.5s 0s, visibility 0s 0.45s;
       visibility: hidden;
@@ -28,20 +27,38 @@
 
 .card-body {
   padding: 1em;
-  // text-align: justify;
   overflow: auto;
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: space-between;
-}
 
-.card-title {
-  text-align: center;
-}
+  .card-body-top {
+    display: flex;
+    flex-direction: column;
 
-.card-text {
-  .text-muted {
-    margin-top: auto;
+    .card-title {
+      text-align: center;
+      margin-bottom: 0;
+      font-size: large;
+    }
+
+    .card-rating {
+      text-align: center;
+    }
+
+    .card-year {
+      text-align: center;
+      font-size: medium;
+    }
+  }
+
+  .card-body-bottom {
+    margin: auto;
+    padding-bottom: 5em;
+
+    div {
+      text-align: center;
+    }
   }
 }

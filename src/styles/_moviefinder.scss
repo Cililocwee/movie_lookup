@@ -1,14 +1,113 @@
+// colors
+$input-background: rgba(57, 63, 84, 0.8);
+$input-text-inactive: #6c7492;
+$input-text-active: #7c89a7;
+
+// gradient animation
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 0;
+  }
+}
+
 .movie-wrapper {
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3em;
+  background-image: radial-gradient(
+    circle at 0% 0%,
+    #373b52,
+    #252736 51%,
+    #1d1e26
+  );
+
+  @media (max-width: 767px) {
+    padding: 1em;
+  }
 
   .query-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1em;
+    width: 100%;
+
+    .input-group {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+
+      max-width: 400px;
+      margin: 0 auto;
+      border-radius: 60px;
+      // padding: 1rem 1rem 0;
+
+      .nice-backdrop {
+        content: "";
+        width: 100%;
+        position: absolute;
+        border-radius: 60px;
+        bottom: 0px;
+        z-index: 0;
+        height: 100%;
+        background-position: 0% 0%;
+        background: linear-gradient(
+          to right,
+          #b294ff,
+          #57e6e6,
+          #feffb8,
+          #57e6e6,
+          #b294ff,
+          #57e6e6
+        );
+        background-size: 500% auto;
+        animation: gradient 3s linear infinite;
+      }
+      // &:after {
+      //   content: "";
+      //   width: 100%;
+      //   position: absolute;
+
+      //   bottom: 0px;
+      //   z-index: 999;
+      //   height: 3px;
+      //   border-bottom-left-radius: 2px;
+      //   border-bottom-right-radius: 2px;
+      //   background-position: 0% 0%;
+      //   background: linear-gradient(
+      //     to right,
+      //     #b294ff,
+      //     #57e6e6,
+      //     #feffb8,
+      //     #57e6e6,
+      //     #b294ff,
+      //     #57e6e6
+      //   );
+      //   background-size: 500% auto;
+      //   animation: gradient 3s linear infinite;
+      // }
+      input {
+        z-index: 99;
+        width: 100%;
+        border: 0;
+        margin: 3px;
+        border-radius: 60px;
+        padding: 0.25em 1em;
+        flex-grow: 1;
+        color: $input-text-active;
+        font-size: 1.8rem;
+        line-height: 2.4rem;
+        vertical-align: middle;
+        &::-webkit-input-placeholder {
+          color: $input-text-inactive;
+        }
+      }
+    }
   }
 
   .card-container {

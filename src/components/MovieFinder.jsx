@@ -17,6 +17,7 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.results);
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
@@ -31,22 +32,26 @@ export default function MovieFinder() {
   function toggleStyle() {
     setListStyle(!listStyle);
   }
+
   return (
     <div className="movie-wrapper">
       <div className="query-container">
-        <input
-          type="text"
-          name="movie"
-          id="movie"
-          value={movie}
-          onChange={handleChange}
-          onKeyDown={(e) => {
-            console.log(e.key);
-            if (e.key === "Enter") {
-              queryMovie(movie);
-            }
-          }}
-        />
+        <div className="input-group">
+          <input
+            type="text"
+            name="movie"
+            id="movie"
+            value={movie}
+            onChange={handleChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                queryMovie(movie);
+              }
+            }}
+          />
+          <div className="nice-backdrop"></div>
+        </div>
+
         <button onClick={() => queryMovie(movie)}>Find my movie!</button>
         <ListStyleToggle listStyle={toggleStyle} />
       </div>
@@ -59,6 +64,7 @@ export default function MovieFinder() {
               image_url={movie.poster_path}
               description={movie.overview}
               year={movie.release_date.split("-")[0]}
+              stars={movie.vote_average}
             />
           ))
         ) : (
