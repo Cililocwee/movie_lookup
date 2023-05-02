@@ -37,6 +37,7 @@ export default function ListView({ items }) {
 
   return (
     <div className="table">
+      {/* TODO This needs to only display when there are items */}
       <div className="header">
         <div
           onClick={() => {
