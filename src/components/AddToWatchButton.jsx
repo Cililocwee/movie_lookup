@@ -4,7 +4,6 @@ export default function AddToWatchButton({ movieBundle }) {
   function saveToList() {
     checkLocalStorage();
     let tempList = JSON.parse(localStorage.getItem("MovieHoundWatchList"));
-    console.log(tempList);
     tempList.push(movieBundle);
     localStorage.setItem("MovieHoundWatchList", JSON.stringify(tempList));
   }

@@ -1,0 +1,16 @@
+#watch-list-button {
+  width: 100px;
+  padding: 0.5em 0;
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+  z-index: 150;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  box-sizing: border-box;
+  @media only screen and (min-width: 600px) {
+    top: 5px;
+    bottom: auto;
+  }
+}

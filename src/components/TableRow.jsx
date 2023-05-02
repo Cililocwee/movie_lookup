@@ -1,9 +1,9 @@
 import React from "react";
 import AddToWatchButton from "./AddToWatchButton";
 
-export default function TableRow({ currentList, title, year, overview }) {
+export default function TableRow({ title, year, overview, image_url }) {
   const trailerString = `https://www.youtube.com/results?search_query=${title}+trailer+${year}`;
-
+  const imageString = `https://image.tmdb.org/t/p/w600_and_h900_bestv2${image_url}`;
   return (
     <div className="row">
       <div>{title}</div>
@@ -17,7 +17,9 @@ export default function TableRow({ currentList, title, year, overview }) {
         >
           Trailer 🔗
         </a>
-        <AddToWatchButton movieBundle={[title, year, overview]} />
+        <AddToWatchButton
+          movieBundle={[title, year, overview, imageString, trailerString]}
+        />
       </div>
     </div>
   );

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
 import ListView from "./ListView";
 import MovieCard from "./MovieCard";
+import ShowWatchListButton from "./ShowWatchListButton";
 const api_key = import.meta.env.VITE_API_KEY;
-const movie_id = "550"; // The movie ID for "Fight Club"
-const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${api_key}`;
 
 export default function MovieFinder() {
   const [movie, setMovie] = useState("");
@@ -17,7 +16,7 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.results);
+        // console.log(data.results);
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
@@ -35,6 +34,7 @@ export default function MovieFinder() {
 
   return (
     <div className="movie-wrapper">
+      <ShowWatchListButton />
       <div className="query-container">
         <div className="input-group">
           <input

@@ -1,4 +1,5 @@
 import React from "react";
+import AddToWatchButton from "./AddToWatchButton";
 
 export default function MovieCard({
   title,
@@ -7,7 +8,7 @@ export default function MovieCard({
   image_url,
   stars,
 }) {
-  const poster_path =
+  const imageString =
     `https://image.tmdb.org/t/p/w600_and_h900_bestv2` + image_url;
 
   const trailerString = `https://www.youtube.com/results?search_query=${title}+trailer+${year}`;
@@ -30,7 +31,7 @@ export default function MovieCard({
 
   return (
     <div className="movie-card">
-      <img className="card-img-top" src={poster_path} alt="movie poster" />
+      <img className="card-img-top" src={imageString} alt="movie poster" />
       <div className="card-body">
         <div className="card-body-top">
           <h5 className="card-title">{title}</h5>
@@ -48,6 +49,16 @@ export default function MovieCard({
             >
               Trailer 🔗
             </a>
+            <br />
+            <AddToWatchButton
+              movieBundle={[
+                title,
+                year,
+                description,
+                imageString,
+                trailerString,
+              ]}
+            />
           </div>
         </div>
       </div>
