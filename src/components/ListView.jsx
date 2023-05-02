@@ -62,7 +62,7 @@ export default function ListView({ items }) {
             key={k}
             title={movie.title}
             image_url={movie.poster_path}
-            trailer={"https://www.youtube.com/"}
+            overview={movie.overview}
             year={movie.release_date.split("-")[0]}
           />
         ))}

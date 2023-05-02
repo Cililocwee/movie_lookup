@@ -1,6 +1,7 @@
 import React from "react";
+import AddToWatchButton from "./AddToWatchButton";
 
-export default function TableRow({ title, year, trailer }) {
+export default function TableRow({ currentList, title, year, overview }) {
   const trailerString = `https://www.youtube.com/results?search_query=${title}+trailer+${year}`;
 
   return (
@@ -16,6 +17,7 @@ export default function TableRow({ title, year, trailer }) {
         >
           Trailer 🔗
         </a>
+        <AddToWatchButton movieBundle={[title, year, overview]} />
       </div>
     </div>
   );
