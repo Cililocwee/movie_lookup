@@ -1,7 +1,10 @@
-#watch-list-modal {
+@import "https://unpkg.com/open-props";
+
+#watch-list-body {
   max-height: 500px;
-  position: relative;
-  padding: 0 1em;
+  padding: 0.5em 1em;
+  background-color: white;
+  margin: 0.5em;
 
   .watch-list-mini-card {
     display: flex;
@@ -32,4 +35,49 @@
       background-color: #3939fe;
     }
   }
+}
+
+#watch-list-background {
+  border: 5px solid transparent;
+  border-image: linear-gradient(
+    to bottom right,
+    #b827fc 0%,
+    #2c90fc 25%,
+    #b8fd33 50%,
+    #fec837 75%,
+    #fd1892 100%
+  );
+  border-image-slice: 1;
+}
+
+dialog {
+  display: block;
+  inset: 0;
+  z-index: var(--layer-important);
+  max-inline-size: min(90vw, var(--size-content-3));
+  max-block-size: min(80vh, 100%);
+  transition: opacity 0.5s;
+  animation: var(--animation-scale-down) forwards;
+  animation-timing-function: var(--ease-squish-3);
+  border-radius: 0.5rem;
+  padding: 0;
+
+  box-shadow: 0 0 2rem 0 rgba(0, 0, 0, 0.5);
+
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.639);
+  }
+}
+
+dialog[open] {
+  animation: var(--animation-slide-in-up) forwards;
+}
+
+dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(0.25rem);
 }

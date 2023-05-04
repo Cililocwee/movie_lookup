@@ -68,29 +68,6 @@ $input-text-active: #7c89a7;
         background-size: 500% auto;
         animation: gradient 3s linear infinite;
       }
-      // &:after {
-      //   content: "";
-      //   width: 100%;
-      //   position: absolute;
-
-      //   bottom: 0px;
-      //   z-index: 999;
-      //   height: 3px;
-      //   border-bottom-left-radius: 2px;
-      //   border-bottom-right-radius: 2px;
-      //   background-position: 0% 0%;
-      //   background: linear-gradient(
-      //     to right,
-      //     #b294ff,
-      //     #57e6e6,
-      //     #feffb8,
-      //     #57e6e6,
-      //     #b294ff,
-      //     #57e6e6
-      //   );
-      //   background-size: 500% auto;
-      //   animation: gradient 3s linear infinite;
-      // }
       input {
         z-index: 99;
         width: 100%;
