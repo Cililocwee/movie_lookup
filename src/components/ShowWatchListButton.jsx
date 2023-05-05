@@ -49,17 +49,20 @@ export default function ShowWatchListButton() {
       <dialog id="watch-list-modal">
         <div id="watch-list-background">
           <div id="watch-list-body">
-            <button id="watch-list-modal-close">Close</button>
-            <button id="watch-list-clear" onClick={handleRemoveAll}>
-              Clear List
-            </button>
+            <div id="watch-list-modal-buttons">
+              <button id="watch-list-modal-close">Close</button>
+              <button id="watch-list-clear" onClick={handleRemoveAll}>
+                Clear List
+              </button>
+            </div>
+
             {currentWatchList.length > 0 ? (
               currentWatchList.map((item) => (
                 <div className="watch-list-mini-card">
                   <RemoveMovieButton
                     title={item[0]}
                     update={removeFromWatchList}
-                  />{" "}
+                  />
                   <p>{item[0]}</p>
                 </div>
               ))

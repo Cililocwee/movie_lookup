@@ -7,7 +7,6 @@
   .row {
     display: flex;
     text-align: center;
-
     div {
       flex: 1;
       padding: 0.2rem 0.4em;
@@ -15,8 +14,18 @@
     }
   }
 
+  .row div p {
+    margin: auto;
+  }
+
+  .row div {
+    display: flex;
+    align-items: center;
+  }
+
   .header {
     background-color: rgb(238, 238, 238);
+
     div {
       cursor: pointer;
     }

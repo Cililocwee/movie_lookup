@@ -5,35 +5,38 @@
   padding: 0.5em 1em;
   background-color: white;
   margin: 0.5em;
+  // display: flex;
+  // flex-direction: column;
 
   .watch-list-mini-card {
     display: flex;
     border-bottom: 1px solid gray;
+  }
+}
 
-    button {
-      width: 1.5em;
-      height: 1.5em;
-      padding: 0.5em;
-      border-radius: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: auto 1em auto 0;
-      border: 1px solid #2f2fd0;
+#watch-list-modal-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 
-      &:hover {
-        background-color: rgb(220, 220, 220);
-      }
+  #watch-list-modal-close {
+    background-color: #3939fe;
+
+    &:hover {
+      background-color: #2f2fd0;
+    }
+  }
+
+  #watch-list-clear {
+    background-color: red;
+
+    &:hover {
+      background-color: darkred;
     }
   }
 
   > button {
-    background-color: #2f2fd0;
     color: white;
-
-    &:hover {
-      background-color: #3939fe;
-    }
   }
 }
 
@@ -41,13 +44,53 @@
   border: 5px solid transparent;
   border-image: linear-gradient(
     to bottom right,
-    #b827fc 0%,
-    #2c90fc 25%,
-    #b8fd33 50%,
-    #fec837 75%,
-    #fd1892 100%
+    #b294ff,
+    #57e6e6,
+    #feffb8,
+    #57e6e6,
+    #b294ff,
+    #57e6e6
   );
   border-image-slice: 1;
+  overflow: auto;
+}
+
+.remove-from-list-button {
+  background-color: inherit;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 1em auto 0;
+  border: none;
+
+  &:hover,
+  &:hover + * {
+    transition: 0.5s;
+    color: red;
+    transform: scale(1.05);
+  }
+
+  &:hover + * {
+    text-decoration: line-through;
+  }
+
+  &:focus,
+  &:focus + * {
+    transition: 0.5s;
+    color: red;
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  &:focus + * {
+    text-decoration: line-through;
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 dialog {

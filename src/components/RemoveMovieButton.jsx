@@ -16,5 +16,9 @@ export default function RemoveMovieButton({ title, update }) {
     }
   }
 
-  return <button onClick={handleClick}>×</button>;
+  return (
+    <button class={"remove-from-list-button"} onClick={handleClick}>
+      <p>×</p>
+    </button>
+  );
 }

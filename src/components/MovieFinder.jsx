@@ -16,7 +16,6 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data.results);
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
