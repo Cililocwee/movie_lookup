@@ -53,7 +53,7 @@ export default function ListView({ items }) {
             sortBy("release_date", sortValue);
           }}
         >
-          Released {sortValue ? ascending : descending}
+          Year {sortValue ? ascending : descending}
         </div>
         <div className="list-view-detail-column">Details</div>
       </div>
