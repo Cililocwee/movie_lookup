@@ -8,7 +8,6 @@ export default function ShowWatchListButton() {
     setCurrentWatchList(
       JSON.parse(localStorage.getItem("MovieHoundWatchList"))
     );
-    // console.log(JSON.parse(localStorage.getItem("MovieHoundWatchList")));
   }
 
   function handleRemoveAll() {

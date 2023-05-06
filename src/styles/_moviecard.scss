@@ -9,15 +9,33 @@
   z-index: 10;
   background: white;
 
-  .card-img-top {
+  .card-img-top,
+  .default-card-img-top {
     max-width: 100%;
     transition: 0.5s;
     position: absolute;
     z-index: 100;
   }
 
+  .default-card-img-top {
+    background: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h5 {
+      font-size: 1.5em;
+      padding: 0;
+      margin: 1em;
+    }
+  }
+
   &:hover {
-    .card-img-top {
+    .card-img-top,
+    .default-card-img-top {
       opacity: 0;
       transition: opacity 0.5s 0s, visibility 0s 0.45s;
       visibility: hidden;

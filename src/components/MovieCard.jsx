@@ -31,7 +31,14 @@ export default function MovieCard({
 
   return (
     <div className="movie-card">
-      <img className="card-img-top" src={imageString} alt="movie poster" />
+      {image_url ? (
+        <img className="card-img-top" src={imageString} alt="movie poster" />
+      ) : (
+        <div className="default-card-img-top">
+          <h5>{title}</h5>
+          <small>{year}</small>
+        </div>
+      )}
       <div className="card-body">
         <div className="card-body-top">
           <h5 className="card-title">{title}</h5>
