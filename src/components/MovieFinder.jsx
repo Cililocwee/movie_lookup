@@ -52,7 +52,12 @@ export default function MovieFinder() {
           <div className="nice-backdrop"></div>
         </div>
 
-        <button onClick={() => queryMovie(movie)}>Fetch my movie!</button>
+        <button
+          className="fetch-movie-button"
+          onClick={() => queryMovie(movie)}
+        >
+          Fetch my movie!
+        </button>
         <ListStyleToggle listStyle={toggleStyle} />
       </div>
       <div className="card-container">

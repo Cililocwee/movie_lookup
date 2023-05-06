@@ -55,7 +55,7 @@ export default function ListView({ items }) {
         >
           Released {sortValue ? ascending : descending}
         </div>
-        <div>Description</div>
+        <div className="list-view-detail-column">Details</div>
       </div>
       <div className="body">
         {data.map((movie, k) => (

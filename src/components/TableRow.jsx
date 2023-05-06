@@ -17,7 +17,7 @@ export default function TableRow({ title, year, overview, image_url }) {
       <div>
         <p>{year}</p>
       </div>
-      <div>
+      <div className="list-view-detail-column">
         <a
           className="trailer-link"
           href={trailerString}
