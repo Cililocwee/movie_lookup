@@ -1,0 +1,45 @@
+@use "./variables" as v;
+
+.add-to-watchlist-button {
+  position: relative;
+  padding: 0;
+  width: 2em;
+  height: 2em;
+  background: #fff;
+  cursor: pointer;
+  // border: 2px solid v.$standard-purple;
+  margin: 1em;
+
+  &:after {
+    content: "";
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: v.$standard-purple;
+    top: 50%;
+    left: 50%;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: v.$standard-purple;
+    height: 50%;
+    width: 4px;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    background: #fff;
+    transition: 0.2s;
+  }
+
+  &:hover {
+    background-color: v.$standard-purple;
+    transition: 0.2s;
+  }
+}

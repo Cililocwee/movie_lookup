@@ -15,5 +15,10 @@ export default function AddToWatchButton({ movieBundle }) {
       localStorage.setItem("MovieHoundWatchList", [JSON.stringify([])]);
     }
   }
-  return <button onClick={() => saveToList()}>Save</button>;
+  return (
+    <button
+      className="add-to-watchlist-button"
+      onClick={() => saveToList()}
+    ></button>
+  );
 }

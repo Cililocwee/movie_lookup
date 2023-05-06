@@ -7,6 +7,11 @@ export default function TableRow({ title, year, overview, image_url }) {
   return (
     <div className="row">
       <div>
+        <div>
+          <AddToWatchButton
+            movieBundle={[title, year, overview, imageString, trailerString]}
+          />
+        </div>
         <p>{title}</p>
       </div>
       <div>
@@ -21,9 +26,6 @@ export default function TableRow({ title, year, overview, image_url }) {
         >
           Trailer 🔗
         </a>
-        <AddToWatchButton
-          movieBundle={[title, year, overview, imageString, trailerString]}
-        />
       </div>
     </div>
   );

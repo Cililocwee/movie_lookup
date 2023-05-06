@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 .table {
   background-color: white;
   min-width: 500px;
@@ -5,4 +7,5 @@
 
 .trailer-link {
   text-decoration: none;
+  color: v.$standard-purple;
 }
