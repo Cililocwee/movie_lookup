@@ -1,7 +1,4 @@
-// colors
-$input-background: rgba(57, 63, 84, 0.8);
-$input-text-inactive: #6c7492;
-$input-text-active: #7c89a7;
+@use "./variables" as v;
 
 // gradient animation
 @keyframes gradient {
@@ -76,12 +73,12 @@ $input-text-active: #7c89a7;
         border-radius: 60px;
         padding: 0.25em 1em;
         flex-grow: 1;
-        color: $input-text-active;
+        color: v.$gentle-text;
         font-size: 1.8rem;
         line-height: 2.4rem;
         vertical-align: middle;
         &::-webkit-input-placeholder {
-          color: $input-text-inactive;
+          color: v.$input-text-inactive;
         }
       }
     }

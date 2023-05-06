@@ -37,6 +37,7 @@ export default function MovieFinder() {
       <div className="query-container">
         <div className="input-group">
           <input
+            placeholder="Search for a movie!"
             type="text"
             name="movie"
             id="movie"

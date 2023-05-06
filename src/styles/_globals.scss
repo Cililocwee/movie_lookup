@@ -1,0 +1,5 @@
+@use "./variables" as v;
+
+button {
+  color: v.$faux-black;
+}
