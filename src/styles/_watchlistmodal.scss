@@ -1,3 +1,4 @@
+@use "./variables" as v;
 @import "https://unpkg.com/open-props";
 
 #watch-list-body {
@@ -20,18 +21,18 @@
   justify-content: space-around;
 
   #watch-list-modal-close {
-    background-color: #3939fe;
+    background-color: v.$standard-purple;
 
     &:hover {
-      background-color: #2f2fd0;
+      background-color: #9c76fc;
     }
   }
 
   #watch-list-clear {
-    background-color: red;
+    background-color: v.$standard-warn;
 
     &:hover {
-      background-color: darkred;
+      background-color: rgb(252, 32, 32);
     }
   }
 

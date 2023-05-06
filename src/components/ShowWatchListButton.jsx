@@ -55,7 +55,7 @@ export default function ShowWatchListButton() {
               </button>
             </div>
 
-            {currentWatchList.length > 0 ? (
+            {currentWatchList?.length > 0 ? (
               currentWatchList.map((item, k) => (
                 <div className="watch-list-mini-card" key={k}>
                   <RemoveMovieButton
