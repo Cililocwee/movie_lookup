@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
 import ListView from "./ListView";
 import MovieCard from "./MovieCard";
 import ShowWatchListButton from "./ShowWatchListButton";
 const api_key = import.meta.env.VITE_API_KEY;
+import Loading from "../assets/loading.svg";
 
 export default function MovieFinder() {
   const [movie, setMovie] = useState("");
   const [movieDisplay, setMovieDisplay] = useState([]);
   const [listStyle, setListStyle] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   async function queryMovie(target) {
+    setMovieDisplay([]);
+    setLoading(true);
+
     await fetch(
       `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=${target}`
     )
@@ -19,6 +24,8 @@ export default function MovieFinder() {
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
+        setMovie("");
+        setLoading(false);
       })
       .catch((error) => console.error(error));
   }
@@ -61,6 +68,8 @@ export default function MovieFinder() {
         <ListStyleToggle listStyle={toggleStyle} />
       </div>
       <div className="card-container">
+        {loading && <img src={Loading} alt="" />}
+
         {listStyle ? (
           movieDisplay.map((movie, k) => (
             <MovieCard
