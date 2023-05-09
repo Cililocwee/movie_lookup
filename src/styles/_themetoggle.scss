@@ -1,0 +1,13 @@
+#theme-toggle {
+  height: 50px;
+  width: 50px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  filter: invert(80%);
+  img {
+    height: 100%;
+  }
+}

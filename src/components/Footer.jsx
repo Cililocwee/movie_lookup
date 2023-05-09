@@ -26,6 +26,10 @@ export default function Footer() {
           />
         </a>
       </div>
+      <p>
+        This product uses the TMDB API but is not endorsed or certified by{" "}
+        <a href="https://www.themoviedb.org/%22">TMDB</a> .
+      </p>
     </footer>
   );
 }

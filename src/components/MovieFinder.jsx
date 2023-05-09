@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
 import ListView from "./ListView";
 import MovieCard from "./MovieCard";
@@ -21,6 +21,10 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
+        console.log(data.results);
+        data.results.forEach((movie) => {
+          console.log(movie.genre_ids);
+        });
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
@@ -29,6 +33,21 @@ export default function MovieFinder() {
       })
       .catch((error) => console.error(error));
   }
+
+  async function complexQuery() {
+    await fetch(
+      `https://api.themoviedb.org/3/movie/863?api_key=${api_key}&append_to_response=videos`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }
+
+  useEffect(() => {
+    complexQuery();
+  }, []);
 
   function handleChange(e) {
     setMovie(e.target.value);
