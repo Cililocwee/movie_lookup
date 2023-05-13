@@ -52,6 +52,7 @@ export default function MovieFinder() {
 
   // ** Working :)
   useEffect(() => {
+    console.log("Intersect Observer");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         // console.log(entry);
@@ -65,7 +66,7 @@ export default function MovieFinder() {
 
     const hiddenElements = document.querySelectorAll(".hidden");
     hiddenElements.forEach((el) => observer.observe(el));
-  }, [movieDisplay]);
+  }, [movieDisplay, listStyle]);
 
   function handleChange(e) {
     setMovie(e.target.value);
@@ -73,6 +74,7 @@ export default function MovieFinder() {
 
   function toggleStyle() {
     setListStyle(!listStyle);
+    setMovieDisplay(movieDisplay);
   }
 
   return (
