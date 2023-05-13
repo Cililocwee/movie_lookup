@@ -21,10 +21,12 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.results);
+        let genreArr = [];
         data.results.forEach((movie) => {
+          genreArr.push(movie.genre_ids);
           console.log(movie.genre_ids);
         });
+
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
@@ -34,28 +36,10 @@ export default function MovieFinder() {
       .catch((error) => console.error(error));
   }
 
-  // TODO This is experimental
-  // async function complexQuery() {
-  //   await fetch(
-  //     `https://api.themoviedb.org/3/movie/863?api_key=${api_key}&append_to_response=videos`
-  //   )
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }
-
-  // useEffect(() => {
-  //   complexQuery();
-  // }, []);
-
-  // ** Working :)
   useEffect(() => {
     console.log("Intersect Observer");
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        // console.log(entry);
         if (entry.isIntersecting) {
           entry.target.classList.add("show");
         } else {

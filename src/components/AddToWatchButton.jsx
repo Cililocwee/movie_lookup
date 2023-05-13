@@ -24,13 +24,10 @@ export default function AddToWatchButton({ movieBundle }) {
     tempList.push(movieBundle);
     localStorage.setItem("MovieHoundWatchList", JSON.stringify(tempList));
     notify();
-    console.log(movieBundle);
   }
 
   function checkLocalStorage() {
-    if (localStorage.getItem("MovieHoundWatchList")) {
-      console.log("Loading list...");
-    } else {
+    if (!localStorage.getItem("MovieHoundWatchList")) {
       localStorage.setItem("MovieHoundWatchList", [JSON.stringify([])]);
     }
   }
