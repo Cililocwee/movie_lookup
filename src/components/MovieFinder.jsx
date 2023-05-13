@@ -34,20 +34,38 @@ export default function MovieFinder() {
       .catch((error) => console.error(error));
   }
 
-  async function complexQuery() {
-    await fetch(
-      `https://api.themoviedb.org/3/movie/863?api_key=${api_key}&append_to_response=videos`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((error) => console.log(error));
-  }
+  // TODO This is experimental
+  // async function complexQuery() {
+  //   await fetch(
+  //     `https://api.themoviedb.org/3/movie/863?api_key=${api_key}&append_to_response=videos`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     })
+  //     .catch((error) => console.log(error));
+  // }
 
+  // useEffect(() => {
+  //   complexQuery();
+  // }, []);
+
+  // ** Working :)
   useEffect(() => {
-    complexQuery();
-  }, []);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // console.log(entry);
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach((el) => observer.observe(el));
+  }, [movieDisplay]);
 
   function handleChange(e) {
     setMovie(e.target.value);

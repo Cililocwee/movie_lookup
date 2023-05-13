@@ -13,6 +13,7 @@
     "firebase": "^9.21.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-toastify": "^9.1.2",
     "spotify-sdk": "^1.0.0-beta2",
     "spotify-web-api-js": "^1.5.2"
   },

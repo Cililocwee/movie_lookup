@@ -30,42 +30,44 @@ export default function MovieCard({
   }
 
   return (
-    <div className="movie-card">
-      {image_url ? (
-        <img className="card-img-top" src={imageString} alt="movie poster" />
-      ) : (
-        <div className="default-card-img-top">
-          <h5>{title}</h5>
-          <small>{year}</small>
-        </div>
-      )}
-      <div className="card-body">
-        <div className="card-body-top">
-          <h5 className="card-title">{title}</h5>
-          <small className="card-year">{year}</small>
-          <small className="card-rating">{getStarRating(stars)}</small>
-        </div>
-        <div className="card-body-bottom">
-          <p className="card-description">{description}</p>
-          <div>
-            <a
-              className="trailer-link"
-              href={trailerString}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Trailer 🔗
-            </a>
-            <br />
-            <AddToWatchButton
-              movieBundle={[
-                title,
-                year,
-                description,
-                imageString,
-                trailerString,
-              ]}
-            />
+    <div className="hidden movie-bundle">
+      <div className="movie-card">
+        {image_url ? (
+          <img className="card-img-top" src={imageString} alt="movie poster" />
+        ) : (
+          <div className="default-card-img-top">
+            <h5>{title}</h5>
+            <small>{year}</small>
+          </div>
+        )}
+        <div className="card-body">
+          <div className="card-body-top">
+            <h5 className="card-title">{title}</h5>
+            <small className="card-year">{year}</small>
+            <small className="card-rating">{getStarRating(stars)}</small>
+          </div>
+          <div className="card-body-bottom">
+            <p className="card-description">{description}</p>
+            <div>
+              <a
+                className="trailer-link"
+                href={trailerString}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Trailer 🔗
+              </a>
+              <br />
+              <AddToWatchButton
+                movieBundle={[
+                  title,
+                  year,
+                  description,
+                  imageString,
+                  trailerString,
+                ]}
+              />
+            </div>
           </div>
         </div>
       </div>
