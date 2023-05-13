@@ -2,6 +2,7 @@ import React from "react";
 
 export default function RemoveMovieButton({ title, update, year, overview }) {
   // Removes movies based on DESCRIPTION to avoid removing all of the same name
+
   function handleClick() {
     let confirmation = confirm(
       `Remove '${title} (${year})' from your Watch List?`

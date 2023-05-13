@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
 import ListView from "./ListView";
 import MovieCard from "./MovieCard";
@@ -21,6 +21,12 @@ export default function MovieFinder() {
     )
       .then((response) => response.json())
       .then((data) => {
+        let genreArr = [];
+        data.results.forEach((movie) => {
+          genreArr.push(movie.genre_ids);
+          console.log(movie.genre_ids);
+        });
+
         setMovieDisplay(data.results);
         setListStyle(true);
         document.getElementById("status").checked = false;
@@ -30,12 +36,29 @@ export default function MovieFinder() {
       .catch((error) => console.error(error));
   }
 
+  useEffect(() => {
+    console.log("Intersect Observer");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach((el) => observer.observe(el));
+  }, [movieDisplay, listStyle]);
+
   function handleChange(e) {
     setMovie(e.target.value);
   }
 
   function toggleStyle() {
     setListStyle(!listStyle);
+    setMovieDisplay(movieDisplay);
   }
 
   return (
