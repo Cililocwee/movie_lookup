@@ -21,7 +21,7 @@
   justify-content: space-around;
 
   #watch-list-modal-close {
-    background-color: v.$standard-purple;
+    background-color: v.$awesome-purple;
 
     &:hover {
       background-color: #9c76fc;
@@ -43,15 +43,7 @@
 
 #watch-list-background {
   border: 5px solid transparent;
-  border-image: linear-gradient(
-    to bottom right,
-    #b294ff,
-    #57e6e6,
-    #feffb8,
-    #57e6e6,
-    #b294ff,
-    #57e6e6
-  );
+  border-image: v.$blue-purple-gradient;
   border-image-slice: 1;
   overflow: auto;
 }

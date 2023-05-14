@@ -16,12 +16,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3em;
-  background-image: radial-gradient(
-    circle at 0% 0%,
-    #373b52,
-    #252736 51%,
-    #1d1e26
-  );
+  background-color: v.$awesome-black;
 
   @media (max-width: 767px) {
     padding: 1em;
@@ -53,17 +48,18 @@
         z-index: 0;
         height: 100%;
         background-position: 0% 0%;
-        background: linear-gradient(
-          to right,
-          #b294ff,
-          #57e6e6,
-          #feffb8,
-          #57e6e6,
-          #b294ff,
-          #57e6e6
-        );
-        background-size: 500% auto;
-        animation: gradient 3s linear infinite;
+        // background: linear-gradient(
+        //   to right,
+        //   #b294ff,
+        //   #57e6e6,
+        //   #feffb8,
+        //   #57e6e6,
+        //   #b294ff,
+        //   #57e6e6
+        // );
+        background: v.$blue-purple-gradient;
+        background-size: 100% auto;
+        // animation: gradient 5s linear infinite;
       }
       input {
         z-index: 99;
