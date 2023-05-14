@@ -37,7 +37,6 @@
       max-width: 400px;
       margin: 0 auto;
       border-radius: 1em;
-      // padding: 1rem 1rem 0;
 
       .nice-backdrop {
         content: "";
@@ -48,19 +47,11 @@
         z-index: 0;
         height: 100%;
         background-position: 0% 0%;
-        // background: linear-gradient(
-        //   to right,
-        //   #b294ff,
-        //   #57e6e6,
-        //   #feffb8,
-        //   #57e6e6,
-        //   #b294ff,
-        //   #57e6e6
-        // );
+
         background: v.$blue-purple-gradient;
         background-size: 100% auto;
-        // animation: gradient 5s linear infinite;
       }
+
       input {
         z-index: 99;
         width: 100%;

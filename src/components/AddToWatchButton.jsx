@@ -34,7 +34,7 @@ export default function AddToWatchButton({ movieBundle }) {
   return (
     <div>
       <button
-        className="add-to-watchlist-button"
+        className="add-to-watchlist-button animated-button"
         onClick={() => saveToList()}
       ></button>
     </div>

@@ -83,7 +83,7 @@ export default function MovieFinder() {
         </div>
 
         <button
-          className="fetch-movie-button"
+          className="fetch-movie-button animated-button"
           onClick={() => queryMovie(movie)}
         >
           Fetch my movie!
