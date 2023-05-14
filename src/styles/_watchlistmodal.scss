@@ -6,12 +6,16 @@
   padding: 0.5em 1em;
   background-color: white;
   margin: 0.5em;
-  // display: flex;
-  // flex-direction: column;
 
   .watch-list-mini-card {
     display: flex;
     border-bottom: 1px solid gray;
+
+    &:hover {
+      text-decoration: line-through;
+      cursor: pointer;
+      color: red;
+    }
   }
 }
 
