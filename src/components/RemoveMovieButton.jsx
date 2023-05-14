@@ -1,5 +1,7 @@
 import React from "react";
 
+// !! DEPRECATED
+
 export default function RemoveMovieButton({ title, update, year, overview }) {
   // Removes movies based on DESCRIPTION to avoid removing all of the same name
 

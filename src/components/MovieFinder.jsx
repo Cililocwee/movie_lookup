@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ListStyleToggle from "./ListStyleToggle";
 import ListView from "./ListView";
 import MovieCard from "./MovieCard";
-import ShowWatchListButton from "./ShowWatchListButton";
+import WatchList from "./WatchList";
 const api_key = import.meta.env.VITE_API_KEY;
 import Loading from "../assets/loading.svg";
 
@@ -63,7 +63,7 @@ export default function MovieFinder() {
 
   return (
     <div className="movie-wrapper">
-      <ShowWatchListButton />
+      <WatchList />
       <div className="query-container">
         <div className="input-group">
           <input

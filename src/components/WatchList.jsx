@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import RemoveMovieButton from "./RemoveMovieButton";
 
-export default function ShowWatchListButton() {
+export default function WatchList() {
   const [currentWatchList, setCurrentWatchList] = useState([]);
 
   function handleClick() {
@@ -19,8 +18,21 @@ export default function ShowWatchListButton() {
     }
   }
 
-  function removeFromWatchList(updatedList) {
-    setCurrentWatchList(updatedList);
+  function removeFromWatchList(title, year, overview) {
+    let confirmation = confirm(
+      `Remove '${title} (${year})' from your Watch List?`
+    );
+
+    if (confirmation) {
+      let parsedList = JSON.parse(localStorage.getItem("MovieHoundWatchList"));
+      let filteredList = parsedList.filter((movie) => {
+        if (movie[2] != overview) {
+          return movie;
+        }
+      });
+      localStorage.setItem("MovieHoundWatchList", JSON.stringify(filteredList));
+      setCurrentWatchList(filteredList);
+    }
   }
 
   useEffect(() => {
@@ -33,7 +45,7 @@ export default function ShowWatchListButton() {
     );
 
     openButton.addEventListener("click", () => {
-      // Dirty, needs better implementation, double opening because of strictmode
+      // TODO Dirty, needs better implementation, double opening because of strictmode
       modal.removeAttribute("open");
       modal.showModal();
     });
@@ -63,13 +75,11 @@ export default function ShowWatchListButton() {
 
             {currentWatchList?.length > 0 ? (
               currentWatchList.map((item, k) => (
-                <div className="watch-list-mini-card" key={k}>
-                  <RemoveMovieButton
-                    title={item[0]}
-                    year={item[1]}
-                    overview={item[2]}
-                    update={removeFromWatchList}
-                  />
+                <div
+                  className="watch-list-mini-card"
+                  key={k}
+                  onClick={() => removeFromWatchList(item[0], item[1], item[2])}
+                >
                   <div>
                     <p>
                       {item[0]} ({item[1]})
