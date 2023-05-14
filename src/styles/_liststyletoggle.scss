@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 .custom-checkbox {
   width: 100%;
   max-width: 340px;
@@ -16,8 +18,8 @@
         cursor: pointer;
         height: 100%;
         position: relative;
-        background-color: #b294ff;
-        color: rgb(70, 80, 90);
+        background-color: v.$awesome-blue;
+        color: v.$awesome-black;
         transition: all 0.5s ease;
         padding: 3px;
         border-radius: 16px;
@@ -35,8 +37,8 @@
         }
 
         &:before {
-          background-color: rgb(70, 80, 90);
-          color: #b294ff;
+          background-color: v.$awesome-black;
+          color: v.$awesome-blue;
           box-shadow: 0 0 4px 4px rgba(#000, 0.2);
           left: 3px;
           z-index: 10;
@@ -52,7 +54,7 @@
 
     // Checked stae
     &:checked + label > .status-switch {
-      background-color: #57e6e6;
+      background-color: v.$awesome-purple;
 
       &:after {
         left: 0;
@@ -60,7 +62,7 @@
       }
 
       &:before {
-        color: #57e6e6;
+        color: v.$awesome-purple;
         left: 50%;
         content: attr(data-checked);
       }

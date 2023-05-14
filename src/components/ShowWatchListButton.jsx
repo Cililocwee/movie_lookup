@@ -49,8 +49,14 @@ export default function ShowWatchListButton() {
         <div id="watch-list-background">
           <div id="watch-list-body">
             <div id="watch-list-modal-buttons">
-              <button id="watch-list-modal-close">Close</button>
-              <button id="watch-list-clear" onClick={handleRemoveAll}>
+              <button id="watch-list-modal-close" className="animated-button">
+                Close
+              </button>
+              <button
+                id="watch-list-clear"
+                className="animated-button"
+                onClick={handleRemoveAll}
+              >
                 Clear List
               </button>
             </div>
@@ -79,7 +85,11 @@ export default function ShowWatchListButton() {
           </div>
         </div>
       </dialog>
-      <button id="watch-list-button" onClick={handleClick}>
+      <button
+        id="watch-list-button"
+        className="animated-button"
+        onClick={handleClick}
+      >
         Watch List
       </button>
     </div>

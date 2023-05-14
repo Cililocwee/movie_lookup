@@ -65,6 +65,11 @@ button:focus-visible {
     color: #ffffff;
   }
 
+  .movie-card .default-card-img-top h5,
+  .movie-card .default-card-img-top small {
+    color: black;
+  }
+
   .movie-card,
   #watch-list-body,
   .table {
