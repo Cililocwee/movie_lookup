@@ -68,6 +68,7 @@ export default function MovieFinder() {
         <div className="input-group">
           <input
             placeholder="Search for a movie!"
+            autoComplete="off"
             type="text"
             name="movie"
             id="movie"
